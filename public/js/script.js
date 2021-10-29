@@ -82,9 +82,23 @@ form.addEventListener('submit', (e) => {
         messages.push("Second Name Is Required")
     }
 
+    if (message.value === '' || message.value === null) {
+        messages.push("Message Is Required")
+    }
+
+    if (message.length < 10) {
+        messages.push("Please Enter Correct Subject and More Than 10 Characters")
+    }
+
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!re.test(email.value)) {
+        messages.push("Your Email Is Not Valid")
+    }
+
     if (messages.length > 0) {
         errorElement.style.display = "block"
-        errorElement.innerHTML = messages.join(', ')
+        errorElement.innerHTML = messages.join(', <br> ')
         e.preventDefault();
     }
 })

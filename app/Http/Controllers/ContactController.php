@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
 use Illuminate\Http\Request;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -16,7 +16,8 @@ class ContactController extends Controller
             'email' => $request->email,
             'message' => $request->message,
         ];
-        Mail::to('jvalczga87vv@delta-newvision.com')->send(new ContactMail($details));
+        Mail::to('mahmoudhijazi@delta-newvision.com')->send(new ContactMail($details));
         return back()->with('message-sent' ,'Your Message has been sent successfully');
     }
 }
+//jvalczga87vv@delta-newvision.com

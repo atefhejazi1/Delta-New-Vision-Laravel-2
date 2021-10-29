@@ -316,9 +316,9 @@
                         >
                         <input
                             Name="email"
-                            type="email"
+                            type="text"
                             class="form-control"
-                            id="exampleInputEmail1"
+                            id="email"
                             aria-describedby="emailHelp"
                             placeholder="Email"
                             name="email"
@@ -334,7 +334,7 @@
                         <textarea
 
                             class="form-control"
-                            id="exampleFormControlTextarea1"
+                            id="message"
                             rows="5"
                             name="message"
                         ></textarea>
