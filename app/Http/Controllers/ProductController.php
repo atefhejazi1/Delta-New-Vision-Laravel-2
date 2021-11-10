@@ -12,11 +12,19 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
+
     public function index()
     {
         $products = Product::all();
         return view('home', compact('products'));
     }
+
+    public function showData()
+    {
+        $products = Product::all();
+        return view('index', compact('products'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -56,6 +64,8 @@ class ProductController extends Controller
         $products = Product::all();
 
         return redirect('/home');
+//        return view('home', compact('products'));
+
     }
 
     /**
@@ -78,7 +88,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('products.updateProduct', compact('product'));
+        return view('products.editProduct', compact('product'));
     }
 
     /**
@@ -115,8 +125,10 @@ class ProductController extends Controller
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request)
     {
-        //
+        $product = Product::findOrFail($request->id);
+        $product->delete();
+        return redirect('home');
     }
 }

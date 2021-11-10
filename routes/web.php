@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('homePage');
+//Route::get('/', function () {
+//    return view('index');
+//})->name('homePage');
+Route::get('/', [ProductController::class, 'showData'])->name('homePage');
 
 Route::post('/send-message', [\App\Http\Controllers\ContactController::class, 'sendEmail'])->name('contact-send');
 
@@ -33,9 +34,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/showProducts', [ProductController::class, 'index'])->name('showProducts');
-Route::get('/addProduct', [ProductController::class, 'create'])->name('addProduct');
-Route::post('/storeProduct', [ProductController::class, 'store'])->name('storeProduct');
-Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('editProduct');
-Route::Post('/updateProduct', [ProductController::class, 'update'])->middleware('auth');
-Route::get('/deleteProduct/{id}', [ProductController::class, 'destroy'])->name('deleteProduct');
+Route::get('/showProducts', [ProductController::class, 'index'])->name('showProducts')->middleware('auth');
+Route::get('/addProduct', [ProductController::class, 'create'])->name('addProduct')->middleware('auth');
+Route::post('/storeProduct', [ProductController::class, 'store'])->name('storeProduct')->middleware('auth');
+Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->middleware('auth');
+Route::Post('/product/update', [ProductController::class, 'update'])->middleware('auth');
+
+Route::get('/deleteProduct/{id}', [ProductController::class, 'destroy'])->name('deleteProduct')->middleware('auth');

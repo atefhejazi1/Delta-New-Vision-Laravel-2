@@ -154,60 +154,11 @@
     <div class="container">
         <div class="row">
             <h2 class="text-center">Our Products</h2>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-1.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <img src="images/products/product-2.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-2.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-4.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-5.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-6.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-7.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-8.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-9.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-10.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-11.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-12.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-13.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-14.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-15.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2 d-lg-none">
-                <img src="images/products/product-16.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-17.svg" alt=""/>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2">
-                <img src="images/products/product-18.svg" alt=""/>
-            </div>
+            @foreach ($products as $product)
+                <div class="col-sm-12 col-md-6 col-lg-2">
+                    <img src="{{asset('images/products/'. $product->productImage)}}" alt=""/>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -271,10 +222,10 @@
             </div>
         @endif
 
-            <div class="alert alert-danger" role="alert" id="error">
+        <div class="alert alert-danger" role="alert" id="error">
 
-            </div>
-            <div class="row">
+        </div>
+        <div class="row">
             <form method="post" id="form" action="{{route('contact-send')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">

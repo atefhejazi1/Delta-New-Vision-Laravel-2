@@ -12,13 +12,14 @@
     <title>Delta New Vision</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+
 
 </head>
 
@@ -69,8 +70,6 @@
                     <h6 class="collapse-header">Crud Product</h6>
                     <a class="collapse-item" href="{{route('home')}}">All Product</a>
                     <a class="collapse-item" href="{{route('addProduct')}}">Add Product</a>
-                    <a class="collapse-item" href="{{route('editProduct')}}">Update Product</a>
-                    <a class="collapse-item" href="{{route('deleteProduct')}}">Delete Product</a>
                 </div>
             </div>
         </li>
