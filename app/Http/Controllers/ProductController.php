@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CompanyProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class ProductController extends Controller
     public function showData()
     {
         $products = Product::all();
-        return view('index', compact('products'));
+        $companyProducts = CompanyProduct::all();
+        return view('index', compact('products' , 'companyProducts'));
     }
 
 

@@ -163,6 +163,58 @@
     </div>
 </section>
 
+<section class="company-products">
+    <div class="container">
+        <div class="row">
+            <div class="bisco-dental-products col-12">
+                <h2 class="text-center text-capitalize  ">bisco </h2>
+                <marquee onMouseOver="this.stop()" onMouseOut="this.start()">
+                    {{--                    <img src="{{asset('images/company-products/bisco01.jpg')}}" alt="">--}}
+                    {{--                    <img src="{{asset('images/company-products/bisco02.png')}}" alt="">--}}
+                    {{--                    <img src="{{asset('images/company-products/bisco03.jpg')}}" alt="">--}}
+                    {{--                    <img src="{{asset('images/company-products/bisco04.jpg')}}" alt="">--}}
+                    {{--                    <img src="{{asset('images/company-products/bisco05.jpg')}}" alt="">--}}
+                    @foreach ($companyProducts as $companyP)
+                        @if($companyP->company_id == 2))
+                        <img style="width: 200px ;"
+                             src="{{asset('images/company-products/'. $companyP->companyProductImage)}}"
+                             alt="">
+                        @endif
+                    @endforeach
+
+                </marquee>
+
+            </div>
+            <div class="bisco-dental-products col-12">
+                <h2 class="text-center text-capitalize  ">irena </h2>
+                <marquee onMouseOver="this.stop()" onMouseOut="this.start()">
+                    @foreach ($companyProducts as $companyP)
+                        @if($companyP->company_id == 3))
+                        <img style="width: 200px ;"
+                             src="{{asset('images/company-products/'. $companyP->companyProductImage)}}"
+                             alt="">
+                        @endif
+                    @endforeach
+                </marquee>
+
+            </div>
+            <div class="bisco-dental-products col-12">
+                <h2 class="text-center text-capitalize  ">Smi suture </h2>
+                <marquee onMouseOver="this.stop()" onMouseOut="this.start()">
+                    @foreach ($companyProducts as $companyP)
+                        @if($companyP->company_id == 4))
+                        <img style="width: 200px ;"
+                             src="{{asset('images/company-products/'. $companyP->companyProductImage)}}"
+                             alt="">
+                        @endif
+                    @endforeach
+                </marquee>
+
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="advantages" id="advantages">
     <div class="container">
         <div class="row">

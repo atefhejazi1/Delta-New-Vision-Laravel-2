@@ -42,9 +42,17 @@ return [
             'visibility' => 'public',
         ],
 
+
         'products' => [
             'driver' => 'local',
             'root' => storage_path('app/public/images/products'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
+
+        'companyProducts' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/images/company-products'),
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
